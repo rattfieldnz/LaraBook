@@ -2,6 +2,12 @@
 
 class ExampleTest extends TestCase {
 
+    public function setUp(){
+        parent::setUp();
+        Larabook\Users\User::truncate();
+
+    }
+
 	/**
 	 * A basic functional test example.
 	 *
@@ -9,9 +15,13 @@ class ExampleTest extends TestCase {
 	 */
 	public function testBasicExample()
 	{
-		$crawler = $this->client->request('GET', '/');
+		$user = Larabook\Users\User::create([
+           'username' => "joe",
+            "email" => 'jeff_way@yahoo.com',
+            'password' => 'foo'
+        ]);
 
-		$this->assertTrue($this->client->getResponse()->isOk());
+        Auth::login($user);
 	}
 
 }
