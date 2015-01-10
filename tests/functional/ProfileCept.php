@@ -1,6 +1,6 @@
 <?php
 
-$I = new FunctionalTester($scenario);
+/*$I = new FunctionalTester($scenario);
 $I->am('a Larabook member');
 $I->wantTo('I want to view my profile');
 

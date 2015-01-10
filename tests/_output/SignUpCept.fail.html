@@ -1,51 +1,90 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/css/main.css";
-	</head>
-	<body>
-		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Larabook</a>
+<!doctype html>
+<html lang="en" ng-app="larabook">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://localhost">Larabook</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://localhost/users">Browse Users</a></li>
+            </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="http://localhost/register">Register</a></li>
+                        <li><a href="http://localhost/login">Log In</a></li>
+                                    </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+</nav>
+    <div class="container">
+        
+            <div class="row">
+        <div class="col-md-6">
+            <h1>Register!</h1>
+
+            
+            <form method="POST" action="http://localhost/register" accept-charset="UTF-8" name="registrationForm" ng-controller="RegistrationFormController"><input name="_token" type="hidden" value="6RaZJQRlgd26bnSNYdsx376BBF6VkYVEIwv1zKCs">
+                <!-- Username Form Input -->
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" required="required" ng-model="username" name="username" type="text" id="username">
+                </div>
+
+                <!-- Email Form Input -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" ng-model="email" required="required" name="email" type="email" id="email">
+                </div>
+
+                <!-- Password Form Input -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" ng-model="password" required="required" name="password" type="password" value="" id="password">
+                </div>
+
+                <!-- Password_confirmation Form Input -->
+                <div class="form-group">
+                    <label for="password_confirmation">Password Confirmation:</label>
+                    <input class="form-control" ng-model="password_confirmation" required="required" name="password_confirmation" type="password" value="" id="password_confirmation">
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-primary" ng-disabled="registrationForm.$invalid" type="submit" value="Sign Up">
+                </div>
+
+            </form>
+        </div>
     </div>
-  </div>
-</nav>		<div class="container">
-			<div class="jumbotron">
-	<h1>Welcome to Larabook!</h1>
-	<p>Welcome to the premier place to talk about Laravel with others. Why don't you sign up to see what all the fuss is about?</p>
-	<p>
-	    <a href="http://localhost/register" class="btn btn-lg btn-primary">Sign Up!</a>
-	</p>
-</div>
-		</div>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	</body>
+    </div>
+
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+        $('#flash-overlay-modal').modal();
+
+        $('.comments__create-form').on('keydown', function(e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                $(this).submit();
+            }
+        });
+    </script>
+</body>
 </html>
